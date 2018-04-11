@@ -1,9 +1,5 @@
 <?php
-/**
- * Copyright 1999-2017. Plesk International GmbH.
- */
-
-pm_Context::init('welcome-business');
+// Copyright 1999-2018. Plesk International GmbH.
 
 $application = new pm_Application();
 $application->run();
