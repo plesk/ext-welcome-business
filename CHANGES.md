@@ -1,3 +1,8 @@
+# 1.0.2
+
+* [*] Improved "Create New Domain" functionality
+* [*] Removed MagicSpam extension from the recommendation list
+
 # 1.0.1
 
 * [+] Compatibility with Plesk Onyx 17.8
