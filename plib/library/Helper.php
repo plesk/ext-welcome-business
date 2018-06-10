@@ -160,7 +160,6 @@ class Modules_WelcomeBusiness_Helper
         $catalog_ids = array(
             'wp-toolkit'         => '00d002a7-3252-4996-8a08-aa1c89cf29f7',
             'kolab'              => 'bdc94ad6-cc46-4f5a-8ee7-76675fc3cc44',
-            'magicspam'          => 'b49f9b1b-e8cf-41e1-bd59-4509d92891f7',
             'site-import'        => '01878006-3c3e-4ed6-a7df-37e3741708a2',
             'security-advisor'   => '6bcc01cf-d7bb-4e6a-9db8-dd1826dcad8f',
             'pagespeed-insights' => '3d2639e6-64a9-43fe-a990-c873b6b3ec66',
@@ -276,18 +275,17 @@ class Modules_WelcomeBusiness_Helper
         if (pm_ProductInfo::isWindows()) {
             return array(
                 '1' => 'wp-toolkit',
-                '5' => 'pagespeed-insights',
-                '6' => 'restart',
+                '4' => 'pagespeed-insights',
+                '5' => 'restart',
             );
         }
 
         return array(
             '1' => 'wp-toolkit',
             '2' => 'kolab',
-            '3' => 'magicspam',
-            '4' => self::getAdvisorData(),
-            '5' => 'pagespeed-insights',
-            '6' => 'restart',
+            '3' => self::getAdvisorData(),
+            '4' => 'pagespeed-insights',
+            '5' => 'restart',
         );
     }
 

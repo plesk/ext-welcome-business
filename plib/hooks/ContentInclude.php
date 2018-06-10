@@ -68,12 +68,6 @@ class Modules_WelcomeBusiness_ContentInclude extends pm_Hook_ContentInclude
                                         ]);
                                     }
 
-                                    if (in_array('magicspam', $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_magicspam_inactive', [
-                                            'class' => 'todo'
-                                        ]);
-                                    }
-
                                     if (in_array(Modules_WelcomeBusiness_Helper::getAdvisorData(), $white_list_os)) {
                                         $content .= pm_Locale::lmsg('message_step_ssl_inactive', [
                                             'class'             => 'todo',
@@ -108,12 +102,6 @@ class Modules_WelcomeBusiness_ContentInclude extends pm_Hook_ContentInclude
                                         ]);
                                     }
 
-                                    if (in_array('magicspam', $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_magicspam_inactive', [
-                                            'class' => 'todo'
-                                        ]);
-                                    }
-
                                     if (in_array(Modules_WelcomeBusiness_Helper::getAdvisorData(), $white_list_os)) {
                                         $content .= pm_Locale::lmsg('message_step_ssl_inactive', [
                                             'class'             => 'todo',
@@ -144,19 +132,14 @@ class Modules_WelcomeBusiness_ContentInclude extends pm_Hook_ContentInclude
                                         ]);
                                     }
 
-                                    if (Modules_WelcomeBusiness_Helper::isInstalled('magicspam')) {
-                                        $content .= pm_Locale::lmsg('message_step_magicspam', [
-                                            'link_magicspam' => '/modules/magicspam/'
+                                    if (Modules_WelcomeBusiness_Helper::isInstalled(Modules_WelcomeBusiness_Helper::getAdvisorData())) {
+                                        $content .= pm_Locale::lmsg('message_step_ssl', [
+                                            'link_security'     => '/modules/' . Modules_WelcomeBusiness_Helper::getAdvisorData() . '/',
+                                            'link_advisor_name' => Modules_WelcomeBusiness_Helper::getAdvisorData('name')
                                         ]);
                                     } else {
-                                        $content .= pm_Locale::lmsg('message_step_magicspam_not', [
-                                            'link_install' => pm_Context::getActionUrl('index', 'install') . '?extension=magicspam'
-                                        ]);
-                                    }
-
-                                    if (in_array(Modules_WelcomeBusiness_Helper::getAdvisorData(), $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_ssl_inactive', [
-                                            'class'             => 'todo',
+                                        $content .= pm_Locale::lmsg('message_step_ssl_not', [
+                                            'link_install'      => pm_Context::getActionUrl('index', 'install') . '?extension=' . Modules_WelcomeBusiness_Helper::getAdvisorData(),
                                             'link_advisor_name' => Modules_WelcomeBusiness_Helper::getAdvisorData('name')
                                         ]);
                                     }
@@ -184,53 +167,6 @@ class Modules_WelcomeBusiness_ContentInclude extends pm_Hook_ContentInclude
                                         ]);
                                     }
 
-                                    if (in_array('magicspam', $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_magicspam_inactive', [
-                                            'class' => 'complete'
-                                        ]);
-                                    }
-
-                                    if (Modules_WelcomeBusiness_Helper::isInstalled(Modules_WelcomeBusiness_Helper::getAdvisorData())) {
-                                        $content .= pm_Locale::lmsg('message_step_ssl', [
-                                            'link_security'     => '/modules/' . Modules_WelcomeBusiness_Helper::getAdvisorData() . '/',
-                                            'link_advisor_name' => Modules_WelcomeBusiness_Helper::getAdvisorData('name')
-                                        ]);
-                                    } else {
-                                        $content .= pm_Locale::lmsg('message_step_ssl_not', [
-                                            'link_install'      => pm_Context::getActionUrl('index', 'install') . '?extension=' . Modules_WelcomeBusiness_Helper::getAdvisorData(),
-                                            'link_advisor_name' => Modules_WelcomeBusiness_Helper::getAdvisorData('name')
-                                        ]);
-                                    }
-
-                                    if (in_array('pagespeed-insights', $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_pagespeed_inactive', [
-                                            'class' => 'todo'
-                                        ]);
-                                    }
-
-                                    $content .= pm_Locale::lmsg('message_step_next', [
-                                        'link_next'       => pm_Context::getActionUrl('index', 'step'),
-                                        'link_deactivate' => pm_Context::getActionUrl('index', 'deactivate')
-                                    ]);
-                                } elseif ($step == 5) {
-                                    if (in_array('wp-toolkit', $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_install_inactive', [
-                                            'class' => 'complete'
-                                        ]);
-                                    }
-
-                                    if (in_array('kolab', $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_kolab_inactive', [
-                                            'class' => 'complete'
-                                        ]);
-                                    }
-
-                                    if (in_array('magicspam', $white_list_os)) {
-                                        $content .= pm_Locale::lmsg('message_step_magicspam_inactive', [
-                                            'class' => 'complete'
-                                        ]);
-                                    }
-
                                     if (in_array(Modules_WelcomeBusiness_Helper::getAdvisorData(), $white_list_os)) {
                                         $content .= pm_Locale::lmsg('message_step_ssl_inactive', [
                                             'class'             => 'complete',
@@ -251,7 +187,7 @@ class Modules_WelcomeBusiness_ContentInclude extends pm_Hook_ContentInclude
                                     $content .= pm_Locale::lmsg('message_step_finish', [
                                         'link_finish' => pm_Context::getActionUrl('index', 'step'),
                                     ]);
-                                } elseif ($step == 6) {
+                                } elseif ($step == 5) {
                                     $content .= pm_Locale::lmsg('message_step_restart', [
                                         'link_restart'    => pm_Context::getActionUrl('index', 'restart'),
                                         'link_deactivate' => pm_Context::getActionUrl('index', 'deactivate')
