@@ -17,7 +17,7 @@ class Modules_WelcomeBusiness_ContentInclude extends pm_Hook_ContentInclude
                     $head = new Zend_View_Helper_HeadLink();
                     $head->headLink()->appendStylesheet(pm_Context::getBaseUrl() . 'styles.css');
 
-                    $page_loaded = $_SERVER['REQUEST_URI'];
+                    $page_loaded = Modules_WelcomeBusiness_Helper::getLoadedPage();
                     $white_list = Modules_WelcomeBusiness_Helper::getWhiteListPages();
 
                     if (Modules_WelcomeBusiness_Helper::addMessage()) {
@@ -37,7 +37,7 @@ class Modules_WelcomeBusiness_ContentInclude extends pm_Hook_ContentInclude
 
                             if (Modules_WelcomeBusiness_Helper::checkAvailableDomains() == false) {
                                 $content .= pm_Locale::lmsg('message_step_domain', [
-                                    'link_domain' => Modules_WelcomeBusiness_Helper::getLinkNewDomain()
+                                    'link_domain' => pm_Context::getActionUrl('index', 'redirectnewdomain')
                                 ]);
                             } else {
                                 $white_list_os = Modules_WelcomeBusiness_Helper::stepListOs();

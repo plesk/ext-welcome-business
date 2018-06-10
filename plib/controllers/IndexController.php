@@ -105,4 +105,9 @@ class IndexController extends pm_Controller_Action
 
         $this->redirect('/modules/wp-toolkit/index.php/domain/install', ['prependBase' => false]);
     }
+
+    public function redirectnewdomainAction()
+    {
+        $this->redirect(Modules_WelcomeBusiness_Helper::getLinkNewDomain(), ['prependBase' => false]);
+    }
 }

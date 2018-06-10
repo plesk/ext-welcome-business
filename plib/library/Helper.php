@@ -80,6 +80,26 @@ class Modules_WelcomeBusiness_Helper
     }
 
     /**
+     * Gets loaded page using the global REQUEST_URI variable
+     *
+     * @return mixed
+     */
+    public static function getLoadedPage()
+    {
+        return $_SERVER['REQUEST_URI'];
+    }
+
+    /**
+     * Gets the referer page using the global HTTP_REFERER variable
+     *
+     * @return mixed
+     */
+    public static function getRefererPage()
+    {
+        return $_SERVER['HTTP_REFERER'];
+    }
+
+    /**
      * Returns all pages where the tutorial banner should be loaded
      *
      * @return array
@@ -91,6 +111,7 @@ class Modules_WelcomeBusiness_Helper
             '/admin/home?context=home',
             '/smb/',
             '/smb/web/view',
+            '/smb/web/setup',
         );
 
         return $white_list;
@@ -315,7 +336,13 @@ class Modules_WelcomeBusiness_Helper
      */
     public static function getLinkNewDomain()
     {
+        $pageLoaded = self::getRefererPage();
+
         if (self::isPleskVersion178()) {
+            if (stripos($pageLoaded, '/admin/') !== false) {
+                return '/admin/domain/add-domain';
+            }
+
             return '/smb/web/add-domain';
         }
 
